@@ -1,197 +1,213 @@
 // Define a grammar called Hello
 grammar Description;
-game
-    : question '?'
-    | solution ( ( '!' | EOF ) )
-    ;
 
-question
-    :  HAVE look
-    | BE person
-    | WEAR ACCESSORY
-    ;
+
+gamepeople
+	:	( person )+
+	;
+
+person
+	: NAME OBR portrait CBR
+	;
+	
+portrait
+	: ( look )+
+	;
 
 look
-    : EYES eyelook
-    | HAIR hairlook
-    | NOSE noselook
-    | MOUTH mouthlook
-    | BEARD
-    | REDCHEEKS
-    ;
+	: sex SCOLON
+	| eyelook SCOLON
+	| hairlook SCOLON
+	| cheeks SCOLON
+	| age SCOLON
+	| noselook SCOLON
+	| mouthlook SCOLON
+	| beard SCOLON
+	| body SCOLON
+	| ethnic SCOLON
+	| accessory SCOLON
+	| bald SCOLON
+	;
 
 eyelook
-    : eyecolor
-    | eyesize
+    : EYES EQUALS eyecolor ( COMMA SIZE )?
+    ;
+
+hairlook
+    : HAIR EQUALS HAIRLEN COMMA haircolor ( COMMA HAIRDO )?
+    ;
+
+noselook
+    : NOSE EQUALS SIZE
+    ;
+
+mouthlook
+    : MOUTH EQUALS SIZE
+    ;
+
+beard
+    : BEARD EQUALS ( BEARD | MOUSTACHE )
+    ;
+
+age
+    : AGE EQUALS AGED
+    ;
+
+cheeks
+    : CHEEKS EQUALS BOOL
+    ;
+
+bald
+    : BALD EQUALS BOOL
+    ;
+
+haircolor
+    : COL
+    | HAIRCOL
     ;
 
 eyecolor
     : EYECOL
-    | BLACK
+    | COL
     ;
 
-eyesize
-    :  BIGP
-    | SMALLMP
+sex
+    : SEX EQUALS SEXD
     ;
 
-hairlook
-    : haircolor
-    | HAIRLEN
-    | HAIRDO
+body
+    : BODY EQUALS BODYD
     ;
 
-haircolor
-    : BLACK
-    | HAIRCOL
+ethnic
+    : ETHNIC EQUALS ( ETHNICD | COL )
     ;
 
-noselook
-    : BIGS
-    | SMALLMS
+accessory
+    : ACCESSORY EQUALS ACC ( COMMA ACC )*
     ;
-
-mouthlook
-    : BIGS
-    | SMALLFS
-    ;
-
-person
-    : SEX
-    | AGE
-    | BALD
-    | BODY
-    | ETHNIC
-    ;
-
-solution
-    : SOLUTION
-    ;
-
-BEARD
-	: 'la barba'
-	| 'i baffi'
-	;
-
-EYECOL
-	: 'marroni'
-	| 'verdi'
-	| 'azzurri'
-	;
-
-HAIRCOL
-	: 'biondi'
-	| 'castani'
-	| 'rossi'
-	| 'bianchi'
-	;
-
-HAIRLEN
-	: 'lunghi'
-	| 'corti'
-	;
-
-HAIRDO
-	: 'ricci'
-	| 'lisci'
-	| 'mossi'
-	;
-
-BALD
-	: 'calvo'
-	;
-
-SEX
-	: 'maschio'
-	| 'femmina'
-	;
-
-AGE
-	: 'vecchio'
-	| 'giovane'
-	;
-
-BODY
-	: 'grasso'
-	| 'magro'
-	;
-
-ETHNIC
-	: 'bianco'
-	| 'nero'
-	| 'asiatico'
-	| 'indiano'
-	;
-
-ACCESSORY
-	: 'il cappello'
-	| 'gli occhiali'
-	| 'gli orecchini'
-	| 'il rossetto'
-	;
-
-HAVE
-	: 'ha'
-	;
-
-BE
-	: '\u00e8'
-	;
-
-WEAR
-	: 'porta'
-	;
 
 EYES
-	: 'gli occhi'
+	: 'eyes'
 	;
 
 MOUTH
-	: 'la bocca'
+	: 'mouth'
 	;
 
 HAIR
-	: 'i capelli'
+	: 'hair'
 	;
 
 NOSE
-	: 'il naso'
+	: 'nose'
 	;
 
-REDCHEEKS
-	: 'le guance rosse'
+CHEEKS
+	: 'cheeks'
 	;
 
-BIGS
-	:'grande'
+BALD
+	: 'bald'
 	;
 
-BIGP
-	:'grandi'
+SEX
+	: 'sex'
 	;
 
-SMALLFS
-	:'piccola'
+AGE
+	: 'age'
 	;
 
-SMALLMS
-	:'piccolo'
+BODY
+	: 'body'
 	;
 
-SMALLFP
-	:'piccole'
+BEARD
+	: 'beard'
 	;
 
-SMALLMP
-	:'piccoli'
+MOUSTACHE
+	: 'moustache'
 	;
 
-BLACK
-	:'neri'
+ETHNIC
+	: 'ethnic'
 	;
 
-SOLUTION
-	:['A'-'Z'] (['a'-'z'])*
+ACCESSORY
+	: 'accessory'
+	;
+
+SEXD
+	: 'man' | 'woman'
+	;
+
+AGED
+	: 'old' | 'young'
+	;
+
+BODYD
+	: 'fat' | 'thin'
+	;
+
+EYECOL
+	: 'green' | 'blue'
+	;
+
+HAIRCOL
+	: 'blonde' | 'red'
+	;
+
+HAIRLEN
+	: 'long' | 'short'
+	;
+
+HAIRDO
+	: 'curly' | 'straight' | 'wavy'
+	;
+
+ETHNICD
+	: 'asian'
+	;
+
+COL
+	: 'brown' | 'black' | 'white'
+	;
+
+SIZE
+	: 'big' | 'small'
+	;
+
+BOOL
+	: 'true' | 'false'
+	;
+
+COMMA
+	: ','
+	;
+
+SCOLON
+	: ';'
+	;
+
+OBR
+	: '{'
+	;
+
+CBR
+	: '}'
+	;
+
+EQUALS
+	: '='
+	;
+
+NAME
+	: ['A'-'Z'] (['a'-'z'])*
+	;
+ACC
+	: ['a'-'z'] (['a'-'z'])*
 	;
 
 WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines

@@ -1,8 +1,8 @@
-// Define a grammar called Hello
 grammar Italian;
+
 game
     : question '?'
-    | solution ( ( '!' | EOF ) )
+    | solution  ( '!' | EOF )
     ;
 
 question

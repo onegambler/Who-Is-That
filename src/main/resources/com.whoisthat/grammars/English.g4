@@ -1,193 +1,194 @@
-// Define a grammar called Hello
 grammar English;
+
 game
-    : question '?'
-    | solution ( ( '!' | EOF ) )
-    ;
-
+	: question '?'
+	| solution ( '!' | EOF )
+	;
+	
 question
-    :  HAVE look
-    | BE person
-    | WEAR ACCESSORY
-    ;
-
+	: AUX PRON( HAVE look | WEAR accessory )
+	| BE PRON person
+	;
+	
 look
-    : EYES eyelook
-    | HAIR hairlook
-    | NOSE noselook
-    | MOUTH mouthlook
-    | BEARD
-    | REDCHEEKS
-    ;
+	: color
+	| measures
+	| beard
+	| hairStyle
+	| cheeks
+	;
 
-eyelook
-    : eyecolor
-    | eyesize
-    ;
-
-eyecolor
-    : EYECOL
-    | BLACK
-    ;
-
-eyesize
-    :  BIGP
-    | SMALLMP
-    ;
-
-hairlook
-    : haircolor
-    | HAIRLEN
-    | HAIRDO
-    ;
-
-haircolor
-    : BLACK
-    | HAIRCOL
-    ;
-
-noselook
-    : BIGS
-    | SMALLMS
-    ;
-
-mouthlook
-    : BIGS
-    | SMALLFS
-    ;
-
+color
+	: ( BLACK | BROWN ) ( EYES | HAIR )
+	| ( WHITE | BLONDE | RED ) HAIR 
+	| ( GREEN | BLUE ) EYES
+	;
+	
+measures
+	: SIZEA ( NOSE | MOUTH )
+	| LENGTH HAIR
+	| SIZE EYES
+	;
+	
+beard
+	: BEARD
+	;
+	
+hairStyle
+	: HAIRDO HAIR
+	;
+	
+cheeks
+	: REDCHEEKS
+	;
+	
 person
-    : SEX
-    | AGE
-    | BALD
-    | BODY
-    | ETHNIC
-    ;
-
+	: SEX
+	| AGE
+	| BALD
+	| BODY
+	| ethnic
+	;
+	
+ethnic
+	: ETHNIC
+	| BLACK
+	| WHITE
+	;
+	
+accessory
+	: ACCESSORY
+	;
+	
 solution
-    : SOLUTION
-    ;
-
-BEARD
-	: 'la barba'
-	| 'i baffi'
-	;
-
-EYECOL
-	: 'marroni'
-	| 'verdi'
-	| 'azzurri'
-	;
-
-HAIRCOL
-	: 'biondi'
-	| 'castani'
-	| 'rossi'
-	| 'bianchi'
-	;
-
-HAIRLEN
-	: 'lunghi'
-	| 'corti'
-	;
-
-HAIRDO
-	: 'ricci'
-	| 'lisci'
-	| 'mossi'
-	;
-
-BALD
-	: 'calvo'
-	;
-
-SEX
-	: 'maschio'
-	| 'femmina'
-	;
-
-AGE
-	: 'vecchio'
-	| 'giovane'
-	;
-
-BODY
-	: 'grasso'
-	| 'magro'
-	;
-
-ETHNIC
-	: 'bianco'
-	| 'nero'
-	| 'asiatico'
-	| 'indiano'
-	;
-
-ACCESSORY
-	: 'il cappello'
-	| 'gli occhiali'
-	| 'gli orecchini'
-	| 'il rossetto'
-	;
-
-HAVE
-	: 'ha'
-	;
-
-BE
-	: '\u00e8'
-	;
-
-WEAR
-	: 'porta'
-	;
-
-EYES
-	: 'gli occhi'
-	;
-
-MOUTH
-	: 'la bocca'
+	: SOLUTION
 	;
 
 HAIR
-	: 'i capelli'
+	: 'hair'
+	;
+
+EYES
+	: 'eyes'
+	;
+
+MOUTH
+	: 'mouth'
+	;
+
+BEARD
+	: 'a beard'
+	| 'a moustache'
 	;
 
 NOSE
-	: 'il naso'
+	: 'nose'
+	;
+
+SEX
+	: 'a man'
+	| 'a woman'
+	;
+
+AGE
+	: 'old'
+	| 'young'
+	;
+
+BODY
+	: 'fat'
+	| 'slim'
+	;
+
+ETHNIC
+	: 'asian'
+	| 'indian'
 	;
 
 REDCHEEKS
-	: 'le guance rosse'
+	: 'red cheeks'
 	;
 
-BIGS
-	:'grande'
+ACCESSORY
+	: 'a hat'
+	| 'glasses'
+	| 'earrings'
+	| 'lipstick'
 	;
 
-BIGP
-	:'grandi'
+HAVE
+	: 'have'
 	;
 
-SMALLFS
-	:'piccola'
+BE
+	: 'is'
 	;
 
-SMALLMS
-	:'piccolo'
+WEAR
+	: 'wear'
 	;
 
-SMALLFP
-	:'piccole'
+AUX
+	: 'does'
 	;
 
-SMALLMP
-	:'piccoli'
+PRON
+	: 'he'
+	| 'she'
+	| 'it'
 	;
 
 BLACK
-	:'neri'
+	: 'black'
+	;
+
+BROWN
+	: 'brown'
+	;
+
+GREEN
+	: 'green'
+	;
+
+BLUE
+	: 'blue'
+	;
+
+WHITE
+	: 'white'
+	;
+
+RED
+	: 'red'
+	;
+
+BLONDE
+	: 'blonde'
+	;
+
+LENGTH
+	: 'long'
+	| 'short'
+	;
+
+SIZE
+	: 'big'
+	| 'small'
+	;
+
+SIZEA
+	: 'a big'
+	| 'a small'
+	;
+
+BALD
+	: 'bald'
+	;
+
+HAIRDO
+	: 'straight'
+	| 'curly'
+	| 'wavy'
 	;
 
 SOLUTION
