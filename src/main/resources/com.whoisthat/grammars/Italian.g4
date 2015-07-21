@@ -6,7 +6,7 @@ game
     ;
 
 question
-    :  HAVE look
+    : HAVE look
     | BE person
     | WEAR ACCESSORY
     ;
@@ -131,7 +131,7 @@ ACCESSORY
 	;
 
 HAVE
-	: 'ha'
+	: ('h' | 'H') 'a'
 	;
 
 BE
@@ -139,7 +139,7 @@ BE
 	;
 
 WEAR
-	: 'porta'
+	: ('p' | 'P') 'orta'
 	;
 
 EYES
@@ -163,31 +163,31 @@ REDCHEEKS
 	;
 
 BIGS
-	:'grande'
+	: 'grande'
 	;
 
 BIGP
-	:'grandi'
+	: 'grandi'
 	;
 
 SMALLFS
-	:'piccola'
+	: 'piccola'
 	;
 
 SMALLMS
-	:'piccolo'
+	: 'piccolo'
 	;
 
 SMALLFP
-	:'piccole'
+	: 'piccole'
 	;
 
 SMALLMP
-	:'piccoli'
+	: 'piccoli'
 	;
 
 BLACK
-	:'neri'
+	: 'neri'
 	;
 
 SOLUTION

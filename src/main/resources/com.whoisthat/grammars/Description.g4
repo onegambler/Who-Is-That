@@ -2,7 +2,7 @@
 grammar Description;
 
 
-gamepeople
+gamePeople
 	:	( person )+
 	;
 
@@ -16,12 +16,12 @@ portrait
 
 look
 	: sex SCOLON
-	| eyelook SCOLON
-	| hairlook SCOLON
+	| eyeLook SCOLON
+	| hairLook SCOLON
 	| cheeks SCOLON
 	| age SCOLON
-	| noselook SCOLON
-	| mouthlook SCOLON
+	| noseLook SCOLON
+	| mouthLook SCOLON
 	| beard SCOLON
 	| body SCOLON
 	| ethnic SCOLON
@@ -29,19 +29,19 @@ look
 	| bald SCOLON
 	;
 
-eyelook
-    : EYES EQUALS eyecolor ( COMMA SIZE )?
+eyeLook
+    : EYES EQUALS eyeColor ( COMMA SIZE )?
     ;
 
-hairlook
-    : HAIR EQUALS HAIRLEN COMMA haircolor ( COMMA HAIRDO )?
+hairLook
+    : HAIR EQUALS HAIRLEN COMMA hairColor ( COMMA HAIRDO )?
     ;
 
-noselook
+noseLook
     : NOSE EQUALS SIZE
     ;
 
-mouthlook
+mouthLook
     : MOUTH EQUALS SIZE
     ;
 
@@ -61,12 +61,12 @@ bald
     : BALD EQUALS BOOL
     ;
 
-haircolor
+hairColor
     : COL
     | HAIRCOL
     ;
 
-eyecolor
+eyeColor
     : EYECOL
     | COL
     ;
