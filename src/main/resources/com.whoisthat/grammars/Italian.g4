@@ -6,54 +6,50 @@ game
     ;
 
 question
-    : HAVE look
-    | BE person
-    | WEAR ACCESSORY
+    : haveQuestion | beQuestion | wearQuestion ;
+
+haveQuestion
+	: HAVE look
+	;
+
+beQuestion
+    : BE person
+    ;
+
+wearQuestion
+    : WEAR ACCESSORY
     ;
 
 look
-    : EYES eyelook
-    | HAIR hairlook
-    | NOSE noselook
-    | MOUTH mouthlook
-    | BEARD
-    | REDCHEEKS
+    : eyelook | hairlook | noselook | mouthlook | BEARD | REDCHEEKS
     ;
 
 eyelook
-    : eyecolor
-    | eyesize
+    : EYES (eyecolor | eyesize)
     ;
 
 eyecolor
-    : EYECOL
-    | BLACK
+    : EYECOL | BLACK
     ;
 
 eyesize
-    :  BIGP
-    | SMALLMP
+    : BIGP | SMALLMP
     ;
 
 hairlook
-    : haircolor
-    | HAIRLEN
-    | HAIRDO
+    : HAIR (haircolor | HAIRLEN | HAIRDO)
     ;
 
 haircolor
-    : BLACK
-    | HAIRCOL
+    : BLACK | HAIRCOL
     ;
 
 noselook
-    : BIGS
-    | SMALLMS
+    : NOSE (BIGS | SMALLMS)
     ;
 
 mouthlook
-    : BIGS
-    | SMALLFS
+    : MOUTH (BIGS | SMALLFS)
     ;
 
 person
