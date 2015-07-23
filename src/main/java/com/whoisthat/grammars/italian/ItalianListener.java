@@ -28,36 +28,6 @@ public interface ItalianListener extends ParseTreeListener {
 	 */
 	void exitQuestion(ItalianParser.QuestionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ItalianParser#haveQuestion}.
-	 * @param ctx the parse tree
-	 */
-	void enterHaveQuestion(ItalianParser.HaveQuestionContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ItalianParser#haveQuestion}.
-	 * @param ctx the parse tree
-	 */
-	void exitHaveQuestion(ItalianParser.HaveQuestionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ItalianParser#beQuestion}.
-	 * @param ctx the parse tree
-	 */
-	void enterBeQuestion(ItalianParser.BeQuestionContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ItalianParser#beQuestion}.
-	 * @param ctx the parse tree
-	 */
-	void exitBeQuestion(ItalianParser.BeQuestionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ItalianParser#wearQuestion}.
-	 * @param ctx the parse tree
-	 */
-	void enterWearQuestion(ItalianParser.WearQuestionContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ItalianParser#wearQuestion}.
-	 * @param ctx the parse tree
-	 */
-	void exitWearQuestion(ItalianParser.WearQuestionContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link ItalianParser#look}.
 	 * @param ctx the parse tree
 	 */

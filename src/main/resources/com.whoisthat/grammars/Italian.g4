@@ -6,22 +6,17 @@ game
     ;
 
 question
-    : haveQuestion | beQuestion | wearQuestion ;
-
-haveQuestion
-	: HAVE look
-	;
-
-beQuestion
-    : BE person
-    ;
-
-wearQuestion
-    : WEAR ACCESSORY
-    ;
+    : HAVE look
+    | BE person
+    | WEAR ACCESSORY ;
 
 look
-    : eyelook | hairlook | noselook | mouthlook | BEARD | REDCHEEKS
+    : eyelook
+    | hairlook
+    | noselook
+    | mouthlook
+    | BEARD
+    | REDCHEEKS
     ;
 
 eyelook
@@ -127,15 +122,15 @@ ACCESSORY
 	;
 
 HAVE
-	: ('h' | 'H') 'a'
+	: 'ha'
 	;
 
 BE
-	: '\u00e8'
+	: 'è'
 	;
 
 WEAR
-	: ('p' | 'P') 'orta'
+	: 'porta'
 	;
 
 EYES

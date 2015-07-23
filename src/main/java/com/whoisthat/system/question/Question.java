@@ -18,7 +18,7 @@ public interface Question extends Serializable {
 		private QuestionType type;
 		private String pronoun;
 		private String accessory;
-		private String pysicalTrait;
+		private String physicalTrait;
         private String look;
 
 		public QuestionBuilder be() {
@@ -47,7 +47,7 @@ public interface Question extends Serializable {
 		}
 
 		public QuestionBuilder withPhysicalTrait(String trait) {
-			this.pysicalTrait = trait;
+			this.physicalTrait = trait;
 			return this;
 		}
 
@@ -67,9 +67,9 @@ public interface Question extends Serializable {
 
             switch (type) {
                 case HAVE:
-                    requireNonNull(pysicalTrait, "Physical trait cannot be null in a Have Question");
+                    requireNonNull(physicalTrait, "Physical trait cannot be null in a Have Question");
                     requireNonNull(look, "Trait look cannot be null in a Have Question");
-                    return new HaveQuestion(pronoun, pysicalTrait, look);
+                    return new HaveQuestion(pronoun, physicalTrait, look);
                 case BE:
                     requireNonNull(look, "Trait look cannot be null in a Be Question");
                     return new BeQuestion(pronoun, look);

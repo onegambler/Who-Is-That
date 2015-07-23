@@ -1,9 +1,9 @@
-package com.whoisthat.tools;
+package com.whoisthat.grammars.italian;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public enum ItalianTerminals {
+public enum ItalianTerminal {
 
     GREEN("verde", "verdi"),
     BLUE("azzurri"),
@@ -11,9 +11,7 @@ public enum ItalianTerminals {
     BLACK("nero", "neri", "nera", "nere"),
     WHITE("bianco", "bianchi", "bianca", "bianche"),
     BIG("grande", "grandi"),
-    ABIG,
     SMALL("piccolo", "piccola", "piccole", "piccoli"),
-    ASMALL,
     CURLY("ricci"),
     STRAIGHT("lisci"),
     WAVY("mossi"),
@@ -37,22 +35,16 @@ public enum ItalianTerminals {
     BEARD("la barba"),
     MOUSTACHE("i baffi");
 
-    private static final int HASHMAPSIZE = 21;
 
-    public static ItalianTerminals valueOfAlias(String alias) {
-        ItalianTerminals constant = Aliases.map.get(alias.trim().toLowerCase());
-        if (constant == null) {
-            throw new IllegalArgumentException("undefined constant for: "
-                    + alias);
-        }
-        return constant;
+    public static ItalianTerminal getTerminal(String alias) {
+        return Aliases.map.get(alias);
     }
 
     public String toString() {
         return name().toLowerCase();
     }
 
-    ItalianTerminals(String... aliases) {
+    ItalianTerminal(String... aliases) {
         Aliases.map.put(this.name().trim().toLowerCase(), this);
         for (String alias : aliases) {
             Aliases.map.put(alias.trim().toLowerCase(), this);
@@ -60,6 +52,6 @@ public enum ItalianTerminals {
     }
 
     private static final class Aliases {
-        static final Map<String, ItalianTerminals> map = new HashMap<>(HASHMAPSIZE);
+        static final Map<String, ItalianTerminal> map = new HashMap<>();
     }
 }

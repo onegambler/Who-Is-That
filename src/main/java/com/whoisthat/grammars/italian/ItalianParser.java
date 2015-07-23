@@ -22,19 +22,17 @@ public class ItalianParser extends Parser {
 		EYES=17, MOUTH=18, HAIR=19, NOSE=20, REDCHEEKS=21, BIGS=22, BIGP=23, SMALLFS=24, 
 		SMALLMS=25, SMALLFP=26, SMALLMP=27, BLACK=28, SOLUTION=29, WS=30;
 	public static final int
-		RULE_game = 0, RULE_question = 1, RULE_haveQuestion = 2, RULE_beQuestion = 3, 
-		RULE_wearQuestion = 4, RULE_look = 5, RULE_eyelook = 6, RULE_eyecolor = 7, 
-		RULE_eyesize = 8, RULE_hairlook = 9, RULE_haircolor = 10, RULE_noselook = 11, 
-		RULE_mouthlook = 12, RULE_person = 13, RULE_solution = 14;
+		RULE_game = 0, RULE_question = 1, RULE_look = 2, RULE_eyelook = 3, RULE_eyecolor = 4, 
+		RULE_eyesize = 5, RULE_hairlook = 6, RULE_haircolor = 7, RULE_noselook = 8, 
+		RULE_mouthlook = 9, RULE_person = 10, RULE_solution = 11;
 	public static final String[] ruleNames = {
-		"game", "question", "haveQuestion", "beQuestion", "wearQuestion", "look", 
-		"eyelook", "eyecolor", "eyesize", "hairlook", "haircolor", "noselook", 
-		"mouthlook", "person", "solution"
+		"game", "question", "look", "eyelook", "eyecolor", "eyesize", "hairlook", 
+		"haircolor", "noselook", "mouthlook", "person", "solution"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
 		null, "'?'", "'!'", null, null, null, null, null, "'calvo'", null, null, 
-		null, null, null, null, "'\\u00e8'", null, "'gli occhi'", "'la bocca'", 
+		null, null, null, "'ha'", "'è'", "'porta'", "'gli occhi'", "'la bocca'", 
 		"'i capelli'", "'il naso'", "'le guance rosse'", "'grande'", "'grandi'", 
 		"'piccola'", "'piccolo'", "'piccole'", "'piccoli'", "'neri'"
 	};
@@ -120,25 +118,25 @@ public class ItalianParser extends Parser {
 		enterRule(_localctx, 0, RULE_game);
 		int _la;
 		try {
-			setState(36);
+			setState(30);
 			switch (_input.LA(1)) {
 			case HAVE:
 			case BE:
 			case WEAR:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(30);
+				setState(24);
 				question();
-				setState(31);
+				setState(25);
 				match(T__0);
 				}
 				break;
 			case SOLUTION:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(33);
+				setState(27);
 				solution();
-				setState(34);
+				setState(28);
 				_la = _input.LA(1);
 				if ( !(_la==EOF || _la==T__1) ) {
 				_errHandler.recoverInline(this);
@@ -163,15 +161,16 @@ public class ItalianParser extends Parser {
 	}
 
 	public static class QuestionContext extends ParserRuleContext {
-		public HaveQuestionContext haveQuestion() {
-			return getRuleContext(HaveQuestionContext.class,0);
+		public TerminalNode HAVE() { return getToken(ItalianParser.HAVE, 0); }
+		public LookContext look() {
+			return getRuleContext(LookContext.class,0);
 		}
-		public BeQuestionContext beQuestion() {
-			return getRuleContext(BeQuestionContext.class,0);
+		public TerminalNode BE() { return getToken(ItalianParser.BE, 0); }
+		public PersonContext person() {
+			return getRuleContext(PersonContext.class,0);
 		}
-		public WearQuestionContext wearQuestion() {
-			return getRuleContext(WearQuestionContext.class,0);
-		}
+		public TerminalNode WEAR() { return getToken(ItalianParser.WEAR, 0); }
+		public TerminalNode ACCESSORY() { return getToken(ItalianParser.ACCESSORY, 0); }
 		public QuestionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -190,155 +189,37 @@ public class ItalianParser extends Parser {
 		QuestionContext _localctx = new QuestionContext(_ctx, getState());
 		enterRule(_localctx, 2, RULE_question);
 		try {
-			setState(41);
+			setState(38);
 			switch (_input.LA(1)) {
 			case HAVE:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(38);
-				haveQuestion();
+				setState(32);
+				match(HAVE);
+				setState(33);
+				look();
 				}
 				break;
 			case BE:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(39);
-				beQuestion();
+				setState(34);
+				match(BE);
+				setState(35);
+				person();
 				}
 				break;
 			case WEAR:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(40);
-				wearQuestion();
+				setState(36);
+				match(WEAR);
+				setState(37);
+				match(ACCESSORY);
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class HaveQuestionContext extends ParserRuleContext {
-		public TerminalNode HAVE() { return getToken(ItalianParser.HAVE, 0); }
-		public LookContext look() {
-			return getRuleContext(LookContext.class,0);
-		}
-		public HaveQuestionContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_haveQuestion; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ItalianListener ) ((ItalianListener)listener).enterHaveQuestion(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ItalianListener ) ((ItalianListener)listener).exitHaveQuestion(this);
-		}
-	}
-
-	public final HaveQuestionContext haveQuestion() throws RecognitionException {
-		HaveQuestionContext _localctx = new HaveQuestionContext(_ctx, getState());
-		enterRule(_localctx, 4, RULE_haveQuestion);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(43);
-			match(HAVE);
-			setState(44);
-			look();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class BeQuestionContext extends ParserRuleContext {
-		public TerminalNode BE() { return getToken(ItalianParser.BE, 0); }
-		public PersonContext person() {
-			return getRuleContext(PersonContext.class,0);
-		}
-		public BeQuestionContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_beQuestion; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ItalianListener ) ((ItalianListener)listener).enterBeQuestion(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ItalianListener ) ((ItalianListener)listener).exitBeQuestion(this);
-		}
-	}
-
-	public final BeQuestionContext beQuestion() throws RecognitionException {
-		BeQuestionContext _localctx = new BeQuestionContext(_ctx, getState());
-		enterRule(_localctx, 6, RULE_beQuestion);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(46);
-			match(BE);
-			setState(47);
-			person();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class WearQuestionContext extends ParserRuleContext {
-		public TerminalNode WEAR() { return getToken(ItalianParser.WEAR, 0); }
-		public TerminalNode ACCESSORY() { return getToken(ItalianParser.ACCESSORY, 0); }
-		public WearQuestionContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_wearQuestion; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ItalianListener ) ((ItalianListener)listener).enterWearQuestion(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ItalianListener ) ((ItalianListener)listener).exitWearQuestion(this);
-		}
-	}
-
-	public final WearQuestionContext wearQuestion() throws RecognitionException {
-		WearQuestionContext _localctx = new WearQuestionContext(_ctx, getState());
-		enterRule(_localctx, 8, RULE_wearQuestion);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(49);
-			match(WEAR);
-			setState(50);
-			match(ACCESSORY);
 			}
 		}
 		catch (RecognitionException re) {
@@ -383,49 +264,49 @@ public class ItalianParser extends Parser {
 
 	public final LookContext look() throws RecognitionException {
 		LookContext _localctx = new LookContext(_ctx, getState());
-		enterRule(_localctx, 10, RULE_look);
+		enterRule(_localctx, 4, RULE_look);
 		try {
-			setState(58);
+			setState(46);
 			switch (_input.LA(1)) {
 			case EYES:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(52);
+				setState(40);
 				eyelook();
 				}
 				break;
 			case HAIR:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(53);
+				setState(41);
 				hairlook();
 				}
 				break;
 			case NOSE:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(54);
+				setState(42);
 				noselook();
 				}
 				break;
 			case MOUTH:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(55);
+				setState(43);
 				mouthlook();
 				}
 				break;
 			case BEARD:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(56);
+				setState(44);
 				match(BEARD);
 				}
 				break;
 			case REDCHEEKS:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(57);
+				setState(45);
 				match(REDCHEEKS);
 				}
 				break;
@@ -468,25 +349,25 @@ public class ItalianParser extends Parser {
 
 	public final EyelookContext eyelook() throws RecognitionException {
 		EyelookContext _localctx = new EyelookContext(_ctx, getState());
-		enterRule(_localctx, 12, RULE_eyelook);
+		enterRule(_localctx, 6, RULE_eyelook);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(60);
+			setState(48);
 			match(EYES);
-			setState(63);
+			setState(51);
 			switch (_input.LA(1)) {
 			case EYECOL:
 			case BLACK:
 				{
-				setState(61);
+				setState(49);
 				eyecolor();
 				}
 				break;
 			case BIGP:
 			case SMALLMP:
 				{
-				setState(62);
+				setState(50);
 				eyesize();
 				}
 				break;
@@ -525,12 +406,12 @@ public class ItalianParser extends Parser {
 
 	public final EyecolorContext eyecolor() throws RecognitionException {
 		EyecolorContext _localctx = new EyecolorContext(_ctx, getState());
-		enterRule(_localctx, 14, RULE_eyecolor);
+		enterRule(_localctx, 8, RULE_eyecolor);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(65);
+			setState(53);
 			_la = _input.LA(1);
 			if ( !(_la==EYECOL || _la==BLACK) ) {
 			_errHandler.recoverInline(this);
@@ -569,12 +450,12 @@ public class ItalianParser extends Parser {
 
 	public final EyesizeContext eyesize() throws RecognitionException {
 		EyesizeContext _localctx = new EyesizeContext(_ctx, getState());
-		enterRule(_localctx, 16, RULE_eyesize);
+		enterRule(_localctx, 10, RULE_eyesize);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(67);
+			setState(55);
 			_la = _input.LA(1);
 			if ( !(_la==BIGP || _la==SMALLMP) ) {
 			_errHandler.recoverInline(this);
@@ -617,30 +498,30 @@ public class ItalianParser extends Parser {
 
 	public final HairlookContext hairlook() throws RecognitionException {
 		HairlookContext _localctx = new HairlookContext(_ctx, getState());
-		enterRule(_localctx, 18, RULE_hairlook);
+		enterRule(_localctx, 12, RULE_hairlook);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(69);
+			setState(57);
 			match(HAIR);
-			setState(73);
+			setState(61);
 			switch (_input.LA(1)) {
 			case HAIRCOL:
 			case BLACK:
 				{
-				setState(70);
+				setState(58);
 				haircolor();
 				}
 				break;
 			case HAIRLEN:
 				{
-				setState(71);
+				setState(59);
 				match(HAIRLEN);
 				}
 				break;
 			case HAIRDO:
 				{
-				setState(72);
+				setState(60);
 				match(HAIRDO);
 				}
 				break;
@@ -679,12 +560,12 @@ public class ItalianParser extends Parser {
 
 	public final HaircolorContext haircolor() throws RecognitionException {
 		HaircolorContext _localctx = new HaircolorContext(_ctx, getState());
-		enterRule(_localctx, 20, RULE_haircolor);
+		enterRule(_localctx, 14, RULE_haircolor);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(75);
+			setState(63);
 			_la = _input.LA(1);
 			if ( !(_la==HAIRCOL || _la==BLACK) ) {
 			_errHandler.recoverInline(this);
@@ -724,14 +605,14 @@ public class ItalianParser extends Parser {
 
 	public final NoselookContext noselook() throws RecognitionException {
 		NoselookContext _localctx = new NoselookContext(_ctx, getState());
-		enterRule(_localctx, 22, RULE_noselook);
+		enterRule(_localctx, 16, RULE_noselook);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(77);
+			setState(65);
 			match(NOSE);
-			setState(78);
+			setState(66);
 			_la = _input.LA(1);
 			if ( !(_la==BIGS || _la==SMALLMS) ) {
 			_errHandler.recoverInline(this);
@@ -771,14 +652,14 @@ public class ItalianParser extends Parser {
 
 	public final MouthlookContext mouthlook() throws RecognitionException {
 		MouthlookContext _localctx = new MouthlookContext(_ctx, getState());
-		enterRule(_localctx, 24, RULE_mouthlook);
+		enterRule(_localctx, 18, RULE_mouthlook);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(80);
+			setState(68);
 			match(MOUTH);
-			setState(81);
+			setState(69);
 			_la = _input.LA(1);
 			if ( !(_la==BIGS || _la==SMALLFS) ) {
 			_errHandler.recoverInline(this);
@@ -820,12 +701,12 @@ public class ItalianParser extends Parser {
 
 	public final PersonContext person() throws RecognitionException {
 		PersonContext _localctx = new PersonContext(_ctx, getState());
-		enterRule(_localctx, 26, RULE_person);
+		enterRule(_localctx, 20, RULE_person);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(83);
+			setState(71);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << BALD) | (1L << SEX) | (1L << AGE) | (1L << BODY) | (1L << ETHNIC))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -863,11 +744,11 @@ public class ItalianParser extends Parser {
 
 	public final SolutionContext solution() throws RecognitionException {
 		SolutionContext _localctx = new SolutionContext(_ctx, getState());
-		enterRule(_localctx, 28, RULE_solution);
+		enterRule(_localctx, 22, RULE_solution);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(85);
+			setState(73);
 			match(SOLUTION);
 			}
 		}
@@ -883,28 +764,27 @@ public class ItalianParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3 Z\4\2\t\2\4\3\t\3"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3 N\4\2\t\2\4\3\t\3"+
 		"\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4\f"+
-		"\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\3\2\3\2\3\2\3\2\3\2\3\2\5\2"+
-		"\'\n\2\3\3\3\3\3\3\5\3,\n\3\3\4\3\4\3\4\3\5\3\5\3\5\3\6\3\6\3\6\3\7\3"+
-		"\7\3\7\3\7\3\7\3\7\5\7=\n\7\3\b\3\b\3\b\5\bB\n\b\3\t\3\t\3\n\3\n\3\13"+
-		"\3\13\3\13\3\13\5\13L\n\13\3\f\3\f\3\r\3\r\3\r\3\16\3\16\3\16\3\17\3\17"+
-		"\3\20\3\20\3\20\2\2\21\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36\2\t\3\3"+
+		"\t\f\4\r\t\r\3\2\3\2\3\2\3\2\3\2\3\2\5\2!\n\2\3\3\3\3\3\3\3\3\3\3\3\3"+
+		"\5\3)\n\3\3\4\3\4\3\4\3\4\3\4\3\4\5\4\61\n\4\3\5\3\5\3\5\5\5\66\n\5\3"+
+		"\6\3\6\3\7\3\7\3\b\3\b\3\b\3\b\5\b@\n\b\3\t\3\t\3\n\3\n\3\n\3\13\3\13"+
+		"\3\13\3\f\3\f\3\r\3\r\3\r\2\2\16\2\4\6\b\n\f\16\20\22\24\26\30\2\t\3\3"+
 		"\4\4\4\2\6\6\36\36\4\2\31\31\35\35\4\2\7\7\36\36\4\2\30\30\33\33\4\2\30"+
-		"\30\32\32\3\2\n\16U\2&\3\2\2\2\4+\3\2\2\2\6-\3\2\2\2\b\60\3\2\2\2\n\63"+
-		"\3\2\2\2\f<\3\2\2\2\16>\3\2\2\2\20C\3\2\2\2\22E\3\2\2\2\24G\3\2\2\2\26"+
-		"M\3\2\2\2\30O\3\2\2\2\32R\3\2\2\2\34U\3\2\2\2\36W\3\2\2\2 !\5\4\3\2!\""+
-		"\7\3\2\2\"\'\3\2\2\2#$\5\36\20\2$%\t\2\2\2%\'\3\2\2\2& \3\2\2\2&#\3\2"+
-		"\2\2\'\3\3\2\2\2(,\5\6\4\2),\5\b\5\2*,\5\n\6\2+(\3\2\2\2+)\3\2\2\2+*\3"+
-		"\2\2\2,\5\3\2\2\2-.\7\20\2\2./\5\f\7\2/\7\3\2\2\2\60\61\7\21\2\2\61\62"+
-		"\5\34\17\2\62\t\3\2\2\2\63\64\7\22\2\2\64\65\7\17\2\2\65\13\3\2\2\2\66"+
-		"=\5\16\b\2\67=\5\24\13\28=\5\30\r\29=\5\32\16\2:=\7\5\2\2;=\7\27\2\2<"+
-		"\66\3\2\2\2<\67\3\2\2\2<8\3\2\2\2<9\3\2\2\2<:\3\2\2\2<;\3\2\2\2=\r\3\2"+
-		"\2\2>A\7\23\2\2?B\5\20\t\2@B\5\22\n\2A?\3\2\2\2A@\3\2\2\2B\17\3\2\2\2"+
-		"CD\t\3\2\2D\21\3\2\2\2EF\t\4\2\2F\23\3\2\2\2GK\7\25\2\2HL\5\26\f\2IL\7"+
-		"\b\2\2JL\7\t\2\2KH\3\2\2\2KI\3\2\2\2KJ\3\2\2\2L\25\3\2\2\2MN\t\5\2\2N"+
-		"\27\3\2\2\2OP\7\26\2\2PQ\t\6\2\2Q\31\3\2\2\2RS\7\24\2\2ST\t\7\2\2T\33"+
-		"\3\2\2\2UV\t\b\2\2V\35\3\2\2\2WX\7\37\2\2X\37\3\2\2\2\7&+<AK";
+		"\30\32\32\3\2\n\16L\2 \3\2\2\2\4(\3\2\2\2\6\60\3\2\2\2\b\62\3\2\2\2\n"+
+		"\67\3\2\2\2\f9\3\2\2\2\16;\3\2\2\2\20A\3\2\2\2\22C\3\2\2\2\24F\3\2\2\2"+
+		"\26I\3\2\2\2\30K\3\2\2\2\32\33\5\4\3\2\33\34\7\3\2\2\34!\3\2\2\2\35\36"+
+		"\5\30\r\2\36\37\t\2\2\2\37!\3\2\2\2 \32\3\2\2\2 \35\3\2\2\2!\3\3\2\2\2"+
+		"\"#\7\20\2\2#)\5\6\4\2$%\7\21\2\2%)\5\26\f\2&\'\7\22\2\2\')\7\17\2\2("+
+		"\"\3\2\2\2($\3\2\2\2(&\3\2\2\2)\5\3\2\2\2*\61\5\b\5\2+\61\5\16\b\2,\61"+
+		"\5\22\n\2-\61\5\24\13\2.\61\7\5\2\2/\61\7\27\2\2\60*\3\2\2\2\60+\3\2\2"+
+		"\2\60,\3\2\2\2\60-\3\2\2\2\60.\3\2\2\2\60/\3\2\2\2\61\7\3\2\2\2\62\65"+
+		"\7\23\2\2\63\66\5\n\6\2\64\66\5\f\7\2\65\63\3\2\2\2\65\64\3\2\2\2\66\t"+
+		"\3\2\2\2\678\t\3\2\28\13\3\2\2\29:\t\4\2\2:\r\3\2\2\2;?\7\25\2\2<@\5\20"+
+		"\t\2=@\7\b\2\2>@\7\t\2\2?<\3\2\2\2?=\3\2\2\2?>\3\2\2\2@\17\3\2\2\2AB\t"+
+		"\5\2\2B\21\3\2\2\2CD\7\26\2\2DE\t\6\2\2E\23\3\2\2\2FG\7\24\2\2GH\t\7\2"+
+		"\2H\25\3\2\2\2IJ\t\b\2\2J\27\3\2\2\2KL\7\37\2\2L\31\3\2\2\2\7 (\60\65"+
+		"?";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
