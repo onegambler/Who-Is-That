@@ -1,4 +1,4 @@
-// Generated from C:/Users/PC/IdeaProjects/Who Is That/src/main/resources/com.whoisthat/grammars\English.g4 by ANTLR 4.5.1
+// Generated from C:/Users/roberto.magale/IdeaProjects/Who-Is-That/src/main/resources/com.whoisthat/grammars\English.g4 by ANTLR 4.5.1
 package com.whoisthat.grammars.english;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -105,9 +105,12 @@ public class EnglishParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_game; }
 		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EnglishVisitor ) return ((EnglishVisitor<? extends T>)visitor).visitGame(this);
-			else return visitor.visitChildren(this);
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).enterGame(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).exitGame(this);
 		}
 	}
 
@@ -177,9 +180,12 @@ public class EnglishParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_question; }
 		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EnglishVisitor ) return ((EnglishVisitor<? extends T>)visitor).visitQuestion(this);
-			else return visitor.visitChildren(this);
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).enterQuestion(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).exitQuestion(this);
 		}
 	}
 
@@ -266,9 +272,12 @@ public class EnglishParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_look; }
 		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EnglishVisitor ) return ((EnglishVisitor<? extends T>)visitor).visitLook(this);
-			else return visitor.visitChildren(this);
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).enterLook(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).exitLook(this);
 		}
 	}
 
@@ -351,9 +360,12 @@ public class EnglishParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_color; }
 		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EnglishVisitor ) return ((EnglishVisitor<? extends T>)visitor).visitColor(this);
-			else return visitor.visitChildren(this);
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).enterColor(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).exitColor(this);
 		}
 	}
 
@@ -443,9 +455,12 @@ public class EnglishParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_measures; }
 		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EnglishVisitor ) return ((EnglishVisitor<? extends T>)visitor).visitMeasures(this);
-			else return visitor.visitChildren(this);
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).enterMeasures(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).exitMeasures(this);
 		}
 	}
 
@@ -510,9 +525,12 @@ public class EnglishParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_beard; }
 		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EnglishVisitor ) return ((EnglishVisitor<? extends T>)visitor).visitBeard(this);
-			else return visitor.visitChildren(this);
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).enterBeard(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).exitBeard(this);
 		}
 	}
 
@@ -545,9 +563,12 @@ public class EnglishParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_hairStyle; }
 		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EnglishVisitor ) return ((EnglishVisitor<? extends T>)visitor).visitHairStyle(this);
-			else return visitor.visitChildren(this);
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).enterHairStyle(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).exitHairStyle(this);
 		}
 	}
 
@@ -581,9 +602,12 @@ public class EnglishParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_cheeks; }
 		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EnglishVisitor ) return ((EnglishVisitor<? extends T>)visitor).visitCheeks(this);
-			else return visitor.visitChildren(this);
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).enterCheeks(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).exitCheeks(this);
 		}
 	}
 
@@ -621,9 +645,12 @@ public class EnglishParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_person; }
 		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EnglishVisitor ) return ((EnglishVisitor<? extends T>)visitor).visitPerson(this);
-			else return visitor.visitChildren(this);
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).enterPerson(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).exitPerson(this);
 		}
 	}
 
@@ -694,9 +721,12 @@ public class EnglishParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_ethnic; }
 		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EnglishVisitor ) return ((EnglishVisitor<? extends T>)visitor).visitEthnic(this);
-			else return visitor.visitChildren(this);
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).enterEthnic(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).exitEthnic(this);
 		}
 	}
 
@@ -734,9 +764,12 @@ public class EnglishParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_accessory; }
 		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EnglishVisitor ) return ((EnglishVisitor<? extends T>)visitor).visitAccessory(this);
-			else return visitor.visitChildren(this);
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).enterAccessory(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).exitAccessory(this);
 		}
 	}
 
@@ -768,9 +801,12 @@ public class EnglishParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_solution; }
 		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof EnglishVisitor ) return ((EnglishVisitor<? extends T>)visitor).visitSolution(this);
-			else return visitor.visitChildren(this);
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).enterSolution(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EnglishListener ) ((EnglishListener)listener).exitSolution(this);
 		}
 	}
 
