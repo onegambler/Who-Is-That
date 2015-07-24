@@ -21,6 +21,8 @@ public interface Question extends Serializable {
 		private GameTerminal physicalTrait;
         private GameTerminal look;
 
+		private String solution;
+
 		public QuestionBuilder be() {
 			type = QuestionType.BE;
 			return this;
@@ -61,24 +63,34 @@ public interface Question extends Serializable {
 			return this;
 		}
 
+		public QuestionBuilder withSolution(String solution) {
+			this.solution = solution;
+			return this;
+		}
+
 		public Question create() {
 			requireNonNull(type, "Question type cannot be null");
-			requireNonNull(pronoun, "Pronoun cannot be null");
 
             switch (type) {
                 case HAVE:
+                    requireNonNull(pronoun, "Pronoun cannot be null");
                     requireNonNull(physicalTrait, "Physical trait cannot be null in a Have Question");
                     return new HaveQuestion(pronoun, physicalTrait, look);
                 case BE:
+                    requireNonNull(pronoun, "Pronoun cannot be null");
                     requireNonNull(look, "Trait look cannot be null in a Be Question");
                     return new BeQuestion(pronoun, look);
                 case WEAR:
+                    requireNonNull(pronoun, "Pronoun cannot be null");
                     requireNonNull(accessory, "Accessory cannot be null for a Wear Question");
                     return new WearQuestion(pronoun, accessory);
+                case ANSWER:
+                    requireNonNull(solution, "Solution cannot be null in an Answer Question");
+                    return new SolutionQuestion(solution);
 
             }
 
-            throw new IllegalStateException("Question type not allowed");
+            throw new IllegalStateException("Question type not allowed " + type);
 		}
 
 		private enum QuestionType {

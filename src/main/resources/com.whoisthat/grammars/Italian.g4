@@ -182,7 +182,7 @@ BLACK
 	;
 
 SOLUTION
-	:['A'-'Z'] (['a'-'z'])*
+	: [a-zA-Z] [a-zA-Z]*
 	;
 
 WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
