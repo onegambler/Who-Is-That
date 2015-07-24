@@ -1,56 +1,36 @@
 package com.whoisthat.system.question;
 
-import java.text.MessageFormat;
-import java.util.ResourceBundle;
+import com.whoisthat.GameTerminal;
+import lombok.Data;
+import lombok.ToString;
 
+@Data
 public class HaveQuestion implements Question {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 3453334361321216959L;
-	private String pron;
-	private String trait;
-	private String look;
+	private GameTerminal pron;
+	private GameTerminal trait;
+	private GameTerminal look;
 
-	public HaveQuestion(String pron, String attribute, String look) {
+	public HaveQuestion(GameTerminal pron, GameTerminal attribute, GameTerminal look) {
 
 		this.pron = pron;
 		this.trait = attribute;
 		this.look = look;
 	}
 
-	public HaveQuestion(String pron, String attribute) {
-		this(pron, attribute, "");
+	public HaveQuestion(GameTerminal pron, GameTerminal attribute) {
+		this(pron, attribute, null);
 	}
 
-	public String getTrait() {
+	public GameTerminal getTrait() {
 		return trait;
 	}
 
-	public String getLook() {
+	public GameTerminal getLook() {
 		return look;
-	}
-
-	@Override
-	public String toString(ResourceBundle messages) {
-
-		String output;
-		MessageFormat formatter;
-		formatter = new MessageFormat("");
-		formatter.setLocale(messages.getLocale());
-
-		if (look.equals("")) {
-			formatter.applyPattern(messages.getString("have1"));
-			output = formatter.format(new Object[] { messages.getString(pron),
-					messages.getString(trait) });
-		} else {
-
-			String temp = look + messages.getString(trait + "type");
-			formatter.applyPattern(messages.getString("have2"));
-			output = formatter.format(new Object[] { messages.getString(pron),
-					messages.getString(temp), messages.getString(trait) });
-		}
-		return output;
 	}
 }

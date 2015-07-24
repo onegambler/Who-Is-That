@@ -1,4 +1,4 @@
-// Generated from C:/Users/PC/IdeaProjects/Who Is That/src/main/resources/com.whoisthat/grammars\Italian.g4 by ANTLR 4.5.1
+// Generated from C:/Users/roberto.magale/IdeaProjects/Who-Is-That/src/main/resources/com.whoisthat/grammars\Italian.g4 by ANTLR 4.5.1
 package com.whoisthat.grammars.italian;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -31,10 +31,10 @@ public class ItalianParser extends Parser {
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, "'?'", "'!'", null, null, null, null, null, "'calvo'", null, null, 
-		null, null, null, "'ha'", "'è'", "'porta'", "'gli occhi'", "'la bocca'", 
-		"'i capelli'", "'il naso'", "'le guance rosse'", "'grande'", "'grandi'", 
-		"'piccola'", "'piccolo'", "'piccole'", "'piccoli'", "'neri'"
+		null, "'?'", "'!'", null, null, null, null, null, null, null, null, null, 
+		null, null, "'ha'", "'ï¿½'", "'porta'", "'gli occhi'", "'la bocca'", "'i capelli'", 
+		"'il naso'", "'le guance rosse'", "'grande'", "'grandi'", "'piccola'", 
+		"'piccolo'", "'piccole'", "'piccoli'", "'neri'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
 		null, null, null, "BEARD", "EYECOL", "HAIRCOL", "HAIRLEN", "HAIRDO", "BALD", 

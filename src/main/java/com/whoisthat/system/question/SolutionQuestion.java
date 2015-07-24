@@ -14,13 +14,6 @@ public class SolutionQuestion implements Question {
 	}
 
 	@Override
-	public String toString(ResourceBundle messages) {
-		return messages.getString("heis") + " "
-				+ Character.toUpperCase(name.charAt(0))
-				+ name.substring(1).toLowerCase();
-	}
-
-	@Override
 	public String toString() {
 		return name;
 	}

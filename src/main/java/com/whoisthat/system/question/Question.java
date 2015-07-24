@@ -1,13 +1,13 @@
 package com.whoisthat.system.question;
 
+import com.whoisthat.GameTerminal;
+
 import java.io.Serializable;
 import java.util.ResourceBundle;
 
 import static java.util.Objects.requireNonNull;
 
 public interface Question extends Serializable {
-
-	String toString(ResourceBundle resource);
 
 	static QuestionBuilder builder() {
 		return new QuestionBuilder();
@@ -16,10 +16,10 @@ public interface Question extends Serializable {
 	class QuestionBuilder {
 
 		private QuestionType type;
-		private String pronoun;
-		private String accessory;
-		private String physicalTrait;
-        private String look;
+		private GameTerminal pronoun;
+		private GameTerminal accessory;
+		private GameTerminal physicalTrait;
+        private GameTerminal look;
 
 		public QuestionBuilder be() {
 			type = QuestionType.BE;
@@ -41,22 +41,22 @@ public interface Question extends Serializable {
 			return this;
 		}
 
-		public QuestionBuilder withPronoun(String pronoun) {
+		public QuestionBuilder withPronoun(GameTerminal pronoun) {
 			this.pronoun = pronoun;
 			return this;
 		}
 
-		public QuestionBuilder withPhysicalTrait(String trait) {
+		public QuestionBuilder withPhysicalTrait(GameTerminal trait) {
 			this.physicalTrait = trait;
 			return this;
 		}
 
-		public QuestionBuilder withLook(String look) {
+		public QuestionBuilder withLook(GameTerminal look) {
 			this.look = look;
 			return this;
 		}
 
-		public QuestionBuilder withAccessory(String accessory) {
+		public QuestionBuilder withAccessory(GameTerminal accessory) {
 			this.accessory = accessory;
 			return this;
 		}
@@ -68,7 +68,6 @@ public interface Question extends Serializable {
             switch (type) {
                 case HAVE:
                     requireNonNull(physicalTrait, "Physical trait cannot be null in a Have Question");
-                    requireNonNull(look, "Trait look cannot be null in a Have Question");
                     return new HaveQuestion(pronoun, physicalTrait, look);
                 case BE:
                     requireNonNull(look, "Trait look cannot be null in a Be Question");

@@ -89,7 +89,7 @@ HAIRDO
 	;
 
 BALD
-	: 'calvo'
+	: 'calvo' | 'pelato' | 'calva' | 'pelata'
 	;
 
 SEX
